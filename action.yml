@@ -24,3 +24,4 @@ runs:
         API_TOKEN: ${{ inputs.token }}
         ENVIRONMENT: ${{ inputs.environment }}
       run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=monitoring-as-code/environments.yaml --project=monitoring-as-code/$ENVIRONMENT
+      shell: bash
