@@ -8,8 +8,6 @@ Documentation on monaco: [monaco](https://github.com/dynatrace-oss/dynatrace-mon
 ```
 jobs:
   monaco_deploy:
-    environment: ${{ github.event.inputs.environment }}
-    runs-on: [self-hosted, kroger, tsa]
     steps:
       - uses: tylerstewart2/monaco-github-action@v1.1
         with:
