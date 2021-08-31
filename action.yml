@@ -1,0 +1,26 @@
+name: 'Monaco Deploy'
+description: 'Deploy monitoring-as-code to Dynatrace'
+inputs:
+  url:
+    description: 'Dynatrace URL'
+    required: true
+  token:
+    description: 'Dynatrace API Token'
+    required: true
+  project:
+    description: 'Monaco project deploying to'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: curl
+      uses: wei/curl@master
+      with:
+        args: -L https://github.com/dynatrace-oss/dynatrace-monitoring-as-code/releases/download/v1.6.0/monaco-linux-amd64 -o monaco
+    - name: monaco deploy
+      env:
+        URL: ${{ inputs.url }}
+        API_TOKEN: ${{ inputs.token }}
+        ENVIRONMENT: ${{ inputs.environment }}
+      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=monitoring-as-code/environments.yaml --project=monitoring-as-code/$ENVIRONMENT
