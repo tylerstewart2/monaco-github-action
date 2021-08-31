@@ -1,6 +1,6 @@
 # Dynatrace Monitoring as Code Github action
 
-Documentation on monaco: [monaco](https://github.com/dynatrace-oss/dynatrace-monitoring-as-code)
+Monaco Repo: [monaco](https://github.com/dynatrace-oss/dynatrace-monitoring-as-code)
 
 ## Usage
 
