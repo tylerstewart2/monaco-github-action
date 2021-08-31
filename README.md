@@ -13,7 +13,8 @@ jobs:
         with:
           url: ${{ secrets.URL }}
           token: ${{ secrets.API_TOKEN }}
-          project: ${{ PROJECT_NAME }}
+          specific-environment: SPECIFIC_ENVIRONMENT
+          project: PROJECT_NAME
 ```
 
 Please ensure URL and API_TOKEN are set as secrets in your repo!
