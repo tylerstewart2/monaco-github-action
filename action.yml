@@ -7,9 +7,11 @@ inputs:
   token:
     description: 'Dynatrace API Token'
     required: true
+  specific-environment:
+    description: 'Specify environment in environments.yaml'
   project:
-    description: 'Monaco project deploying to'
-    required: true
+    description: 'Specify Monaco project'
+  
 
 runs:
   using: "composite"
@@ -22,6 +24,7 @@ runs:
       env:
         URL: ${{ inputs.url }}
         API_TOKEN: ${{ inputs.token }}
-        ENVIRONMENT: ${{ inputs.environment }}
-      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=monitoring-as-code/environments.yaml --project=monitoring-as-code/$ENVIRONMENT
+        PROJECT: ${{ inputs.project }}
+        SPECIFIC_ENVIRONMENT: ${{ inputs.specific-environment }}
+      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=monitoring-as-code/environments.yaml --project=monitoring-as-code/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT
       shell: bash
