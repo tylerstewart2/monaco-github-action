@@ -29,5 +29,6 @@ runs:
         API_TOKEN: ${{ inputs.token }}
         PROJECT: ${{ inputs.project }}
         SPECIFIC_ENVIRONMENT: ${{ inputs.specific-environment }}
-      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=${{ inputs.monaco-root }}/environments.yaml --project=${{ inputs.monaco-root }/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT
+        MONACO_ROOT: ${{ inputs.monaco-root }}
+      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=$MONACO_ROOT/environments.yaml --project=$MONACO_ROOT/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT
       shell: bash
