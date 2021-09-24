@@ -21,6 +21,8 @@ Please ensure URL and API_TOKEN are set as secrets in your repo!
 
 This github action requires you to set up a standard directory in your repo called monitoring-as-code. Directory Structure should look like this:
 
+*NEW! monitoring-as-code default root dir can be overwritten with monaco-root*
+
 ```
 ├── monitoring-as-code # root dir needed for github action
 │   ├── environments.yaml
