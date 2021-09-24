@@ -11,7 +11,10 @@ inputs:
     description: 'Specify environment in environments.yaml'
   project:
     description: 'Specify Monaco project'
-  
+  monaco-root:
+    description: 'Specify Root for deploy'
+    default: 'monitoring-as-code'
+
 
 runs:
   using: "composite"
@@ -26,5 +29,5 @@ runs:
         API_TOKEN: ${{ inputs.token }}
         PROJECT: ${{ inputs.project }}
         SPECIFIC_ENVIRONMENT: ${{ inputs.specific-environment }}
-      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=monitoring-as-code/environments.yaml --project=monitoring-as-code/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT
+      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=${{ inputs.monaco-root }}/environments.yaml --project=${{ inputs.monaco-root }/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT
       shell: bash
