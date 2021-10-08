@@ -32,5 +32,5 @@ runs:
         PROJECT: ${{ inputs.project }}
         SPECIFIC_ENVIRONMENT: ${{ inputs.specific-environment }}
         MONACO_ROOT: ${{ inputs.monaco-root }}
-      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy {{ inputs.optional-params }} --environments=$MONACO_ROOT/environments.yaml --project=$MONACO_ROOT/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT
+      run: chmod +x monaco && export NEW_CLI=1 && ./monaco deploy --environments=$MONACO_ROOT/environments.yaml --project=$MONACO_ROOT/$PROJECT --specific-environment=$SPECIFIC_ENVIRONMENT {{ inputs.optional-params }}
       shell: bash
