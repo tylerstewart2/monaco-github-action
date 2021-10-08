@@ -9,7 +9,7 @@ Monaco Repo: [monaco](https://github.com/dynatrace-oss/dynatrace-monitoring-as-c
 jobs:
   monaco_deploy:
     steps:
-      - uses: tylerstewart2/monaco-github-action@v1.4
+      - uses: tylerstewart2/monaco-github-action@v1.4.2
         with:
           url: ${{ secrets.URL }}
           token: ${{ secrets.API_TOKEN }}
